@@ -1,28 +1,34 @@
-// Functional component
+// Class component
+import React from 'react';
 
 // Parent component
-function App() {
-  return (
-    <div className="container">
-      <Child />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="container">
+        <Child />
+      </div>
+    )
+  }
 }
 
-// Child component
-function Child() {
-  return (
-    <div>
-      <p>Hello world,</p>
-      <GrandChild />
-    </div>
-  );
+class Child extends React.Component {
+  render() {
+    return (
+      <div>
+        <p>Hello world,</p>
+        <GrandChild />
+      </div>
+    )
+  }
 }
 
-function GrandChild() {
-  return (
-    <p>How are you</p>
-  ); 
+class GrandChild extends React.Component {
+  render() {
+    return (
+      <p>How are you</p>
+    )
+  }
 }
 
 export default App;
