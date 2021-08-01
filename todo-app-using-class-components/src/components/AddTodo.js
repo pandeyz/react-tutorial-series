@@ -23,16 +23,16 @@ class AddTodo extends React.Component {
 
   // To handle text change
   handleTextChange = (event) => {
-    let {todo} = this.state;
-    todo.todo = event.target.value;
-    this.setState({todo: todo});
+    let todoObj = {...this.state.todo};
+    todoObj.todo = event.target.value;
+    this.setState({todo: todoObj});
   }
   
   // To handle checkbox selection change
   handleCheckboxChange = (event) => {
-    let {todo} = this.state;
-    todo.isCompleted = event.target.checked;
-    this.setState({todo: todo});
+    let todoObj = {...this.state.todo};
+    todoObj.isCompleted = event.target.checked;
+    this.setState({todo: todoObj});
   }
 
   render() {

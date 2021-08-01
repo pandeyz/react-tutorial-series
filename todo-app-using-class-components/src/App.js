@@ -18,23 +18,30 @@ class App extends React.Component {
 
   // To handle todo "isCompleted" status change
   handleStatusChange = (index, event) => {
-    let {todos} = this.state;
-    todos[index]['isCompleted'] = event.target.checked;
-    this.setState({todos: todos});
+    let todoArr = [...this.state.todos];
+    todoArr[index]['isCompleted'] = event.target.checked;
+    this.setState({todos: todoArr});
   }
 
   // To add a new todo task
   handleAddTodo = (todoDetails) => {
-    let {todos} = this.state;
-    todos.push(todoDetails);
-    this.setState({todos: todos});
+    let todoArr = [...this.state.todos];
+    todoArr.push(todoDetails);
+    this.setState({todos: todoArr});
+  }
+
+  // To delete todo
+  handleDeleteTodo = (index) => {
+    let todoArr = [...this.state.todos];
+    todoArr.splice(index, 1);
+    this.setState({todos: todoArr});
   }
 
   render() {
     return (
       <div className="App">
         <h4>Todo App - Class Components</h4>
-        <TodoList todos={ this.state.todos } onStatusChange={ this.handleStatusChange } />
+        <TodoList todos={ this.state.todos } onStatusChange={ this.handleStatusChange } handleDelete={this.handleDeleteTodo} />
         <hr/>
         <AddTodo addTodo={ this.handleAddTodo } />
       </div>
