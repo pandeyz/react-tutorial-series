@@ -39,7 +39,7 @@ class App extends React.Component {
 		console.log('shouldComponentUpdate nextProps: ', nextProps);
 		console.log('shouldComponentUpdate nextState: ', nextState);
 
-		return true;
+		return false;
 	}
 
 	componentWillUnmount() {
