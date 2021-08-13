@@ -1,22 +1,81 @@
 // Home.js
-
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import UserList from './UserList';
+import { APIURL, APITOKEN } from '../config';
+const axios = require('axios');
 
 function Home(props) {
 
-  let { options, placeHolderText, styleObj, key, value, name } = props;
+  const [isLoading, setIsLoading] = useState(false);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async (url=null) => {
+    setIsLoading(true);
+
+    let apiUrl = '';
+    if( url === null )
+    {
+      apiUrl = APIURL + 'users';
+    }
+    else
+    {
+      apiUrl = url;
+    }
+
+    axios.get(apiUrl)
+    .then(function (response) {
+      setUsers(response.data);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+      setIsLoading(false);
+    });
+  }
+
+  const handlePagination = (url) => {
+    fetchUsers(url);
+  }
+
+  const handleDelete = (userId, userIndex) => {
+    axios.delete(`${APIURL}/users/${userId}`, {
+      headers: {
+        Authorization: `Bearer ${APITOKEN}`
+      }
+    })
+    .then(res => {  
+      if( res.status === 204 )
+      {
+        // let usersObj = {...users};
+        // usersObj.data.splice(userIndex, 1);
+        // setUsers(usersObj);
+        fetchUsers();
+      }
+    });
+  }
+
+  const handleEditUser = (userId) => {
+    props.history.push(`/user/${userId}`);
+  }
 
   return(
-    <select className="form-control" name={name} style={( styleObj ) ? {width: styleObj.width}: {}}>
-      <option value="">{(placeHolderText) ? placeHolderText: 'Select'}</option>
+    <div>
       {
-        ( options && options.length > 0 )
+        (isLoading)
         ?
-        options.map(option => <option key={option.key} value={option[key]}>{option[value]}</option>)
+        <div>Loading...</div>
         :
         null
       }
-    </select>    
+      <UserList users={users} handlePagination={handlePagination} handleDelete={handleDelete} handleEditUser={handleEditUser} />
+    </div>
   )
 }
 
