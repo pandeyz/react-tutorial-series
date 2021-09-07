@@ -17,7 +17,7 @@ function TodoList(props) {
             <li key={index}>
               <div style={{ float: 'left' }}><span style={{ textDecoration: todo.isCompleted ? "line-through" : "none" }}>{todo.todo}</span></div>
               <div style={{ float: 'right' }}>
-                <input type="checkbox" value={todo.isCompleted} defaultChecked={todo.isCompleted} onChange={(event) => this.props.onStatusChange(index, event)} />
+                <input type="checkbox" value={todo.isCompleted} defaultChecked={todo.isCompleted} onChange={(event) => props.onStatusChange(index, event)} />
                 <button onClick={() => handleDelete(index)}>Delete</button>
               </div>
             </li>
