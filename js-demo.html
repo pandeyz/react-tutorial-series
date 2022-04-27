@@ -1,18 +1,86 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JS Demo</title>
-    </style>
-    <script>
-    'use strict';
-
-    // Template literal
-
-    var str = 'hello, ';
-
-    console.log(`${str} World`);
-    
-    </script>
+    <title>Try</title>
   </head>
-  <body></body>
+  <body>
+    <div id="response"></div>
+  </body>
+  <script>
+    // Array destructuring
+    // let arr = [1, 2, 3, 4, 5];
+
+    // let [a, b] = arr;
+    // document.getElementById("response").innerHTML = `a is: ${a}, b is: ${b}`;
+
+    // Object destructuring
+    // let obj = {id: 1, name: 'Aman', age: 20};
+
+    // let {id, name} = obj;
+    // document.getElementById("response").innerHTML = `id is: ${id}, name is: ${name}`;
+
+    // let {id: sid, name: sname} = obj;
+    // document.getElementById("response").innerHTML = `id is: ${sid}, name is: ${sname}`;
+
+    // Rest params
+    // function add(a, b, ...allValues)
+    // {
+    //   console.log(a, b, allValues);
+    // }
+    // add(1, 2, {id: 1, name: 'Aman', age: 20});
+
+    // let arr = [1, 2, 3, 4, 5];
+    // let [a, b, ...allValues] = arr;
+    // console.log(allValues);
+    // document.getElementById("response").innerHTML = `a is: ${a}, b is: ${b}, allValues values are: ${allValues}`;
+
+    // function myFun() {
+    //   document.getElementById("response").innerHTML = 'This is a function';
+    // }
+    // myFun();
+
+    // const myFun1 = (a, b) => {
+    //   document.getElementById("response").innerHTML = 'This is an arrow function';
+    // }
+    // myFun1(10, 20);
+
+    // let obj = {id: 1, name: 'Ajay'};
+
+    // let keys = Object.keys(obj);
+    // let values = Object.values(obj);
+
+    // let entries = Object.entries(obj);
+
+    // console.log(entries);
+    // console.log(values);
+    // document.getElementById("response").innerHTML = keys;
+
+    let arr = [
+      {id: 1, name: 'ajay'},
+      {id: 2, name: 'aman'},
+      {id: 3, name: 'anil'},
+    ];
+    
+    // for( let i=0; i<arr.length; i++ )
+    // {
+    //   console.log(`Element at ${i} index: `, arr[i]);
+    // }
+
+    // for( let obj of arr )
+    // {
+    //   console.log(JSON.stringify(obj, null, 2));
+    // }
+
+    // for( let i in arr )
+    // {
+    //   console.log('i is: ', i, arr[i]);
+    // }
+
+    let array = [1, 2, 3, 4, 5];
+    let num = 10;
+
+    let mapppedArr = array.map(val => val * 10);
+    console.log(array);
+    console.log(mapppedArr);
+;  </script>
 </html>
