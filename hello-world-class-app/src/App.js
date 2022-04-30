@@ -6,6 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
+        I am parent component
         <Child />
       </div>
     )

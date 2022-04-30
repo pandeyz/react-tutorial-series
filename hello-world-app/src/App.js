@@ -4,6 +4,7 @@
 function App() {
   return (
     <div className="container">
+      <p>I am parent component</p>
       <Child />
     </div>
   );
