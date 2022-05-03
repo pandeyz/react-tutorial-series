@@ -35,16 +35,16 @@ function AddTodo(props) {
       <h4>Add Todo</h4>
       <div style={{ textAlign: 'left', marginLeft: 480, marginRight: 480 }}>
         <form onSubmit={handleSubmit}>
-            <div>
-              <label>Todo </label>
-              <input type="text" name="todo" autoComplete="off" onChange={handleTextChange} value={todo.todo} />
-            </div>
-            <div>
-              <label>Status <input type="checkbox" name="isCompleted" onChange={handleCheckboxChange} checked={(todo.isCompleted)} value={todo.isCompleted} /></label>
-            </div>
-            <div>
-              <button>Add</button>
-            </div>
+          <div>
+            <label>Todo </label>
+            <input type="text" name="todo" autoComplete="off" onChange={handleTextChange} value={todo.todo} />
+          </div>
+          <div>
+            <label>Status <input type="checkbox" name="isCompleted" onChange={handleCheckboxChange} checked={(todo.isCompleted)} value={todo.isCompleted} /></label>
+          </div>
+          <div>
+            <button>Add</button>
+          </div>
         </form>
       </div>
     </div>

@@ -3,7 +3,7 @@ import React from 'react';
 function TodoList(props) {
   
   // Destructuring of props is done here to get the todo's
-  let { todos, handleDelete } = props;
+  let { todos, handleDelete, onStatusChange } = props;
 
   return (
     <>
@@ -15,11 +15,14 @@ function TodoList(props) {
           ?
           todos.map((todo, index) => 
             <li key={index}>
-              <div style={{ float: 'left' }}><span style={{ textDecoration: todo.isCompleted ? "line-through" : "none" }}>{todo.todo}</span></div>
+              <div style={{ float: 'left' }}>
+                <span style={{ textDecoration: todo.isCompleted ? "line-through" : "none" }}>{todo.todo}</span>
+              </div>
               <div style={{ float: 'right' }}>
-                <input type="checkbox" value={todo.isCompleted} defaultChecked={todo.isCompleted} onChange={(event) => props.onStatusChange(index, event)} />
+                <input type="checkbox" value={todo.isCompleted} defaultChecked={todo.isCompleted} onChange={(event) => onStatusChange(index, event)} />
                 <button onClick={() => handleDelete(index)}>Delete</button>
               </div>
+              <div style={{ clear: 'both' }}></div>
             </li>
           )
           :

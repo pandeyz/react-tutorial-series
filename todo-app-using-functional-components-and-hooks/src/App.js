@@ -32,9 +32,15 @@ function App() {
   return (
     <div className="App">
       <h4>Todo App - Class Components</h4>
-      <TodoList todos={ todos } onStatusChange={ handleStatusChange } handleDelete={handleDeleteTodo} />
+      <AddTodo 
+        addTodo={handleAddTodo}
+      />
       <hr/>
-      <AddTodo addTodo={ handleAddTodo } />
+      <TodoList 
+        todos={todos}
+        onStatusChange={handleStatusChange} 
+        handleDelete={handleDeleteTodo}
+      />
     </div>
   );
 }
