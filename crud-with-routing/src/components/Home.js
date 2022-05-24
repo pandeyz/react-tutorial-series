@@ -13,7 +13,18 @@ function Home(props) {
     fetchUsers();
   }, []);
 
-  const fetchUsers = async (url=null) => {
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      console.log(`Time is: ${new Date()}`);
+    }, 1000);
+
+    return () => {
+      console.log('Cleanup is called here');
+      clearInterval(intervalId);
+    }
+  }, []);
+
+  const fetchUsers = (url=null) => {
     setIsLoading(true);
 
     let apiUrl = '';
@@ -50,13 +61,13 @@ function Home(props) {
         Authorization: `Bearer ${APITOKEN}`
       }
     })
-    .then(res => {  
+    .then(res => {
       if( res.status === 204 )
       {
-        // let usersObj = {...users};
-        // usersObj.data.splice(userIndex, 1);
-        // setUsers(usersObj);
-        fetchUsers();
+        let usersObj = {...users};
+        usersObj.data.splice(userIndex, 1);
+        setUsers(usersObj);
+        // fetchUsers();
       }
     });
   }
