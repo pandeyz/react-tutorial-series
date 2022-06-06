@@ -37,8 +37,9 @@ function Login({setToken}) {
                     window.location = '/customers-search';
                 })
                 .catch(error => {
-                    console.log(error);
+                    // console.log(error);
                     // Show error or redirect to logout if response is 401
+                    alert('Invalid Credentials');
                 });
         }
     }

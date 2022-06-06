@@ -2,6 +2,7 @@ import React from 'react';
 
 function App() {
   const Hello = ({ name }) => <h1>Hello {name}!</h1>;
+  
   const HelloReact = HOCFunction(Hello, false);
 
   return (

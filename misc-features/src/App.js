@@ -1,51 +1,21 @@
-import { useEffect } from 'react';
-import './App.css';
-const axios = require('axios');
+import React, { useState,useEffect } from "react";
 
-function App() {
-//   useEffect(() => {
-//     axiosCallUsingPromise();
-//     axiosCallUsingAsyncAwait();
-//   }, []);
-
-//   const axiosCallUsingPromise = () => {
-//     console.log('Before triggering axios call');
-//     axios.get('https://jsonplaceholder.typicode.com/posts')
-//     .then(function (response) {
-//       console.log('Response is ready');
-//       console.log(response);
-//     });
-//     console.log('After axios call');
-//   }
-
-//   const axiosCallUsingAsyncAwait = async () => {
-//     console.log('Before triggering axios call');
-//     try {
-//       const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-//       console.log('Response is ready');
-//       console.log(response);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//     console.log('After axios call');
-//   }
-
+const App = () => {
+  const [progress, setProgress] = useState(0);
+  
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      document.title = `Time is: ${new Date()}`;
-    }, 1000);
-
-    return () => {
-      document.title = "Time stopped.";
-      clearInterval(intervalId);
-    }
+    let interval = setInterval(() => { setProgress( progress + 10 ) }, 1000);
+    console.log('interval: ', interval);
   }, []);
 
   return (
-    <div className="App">
-      
+    <div className="w-full mt-2 h-10 bg-gray-300">
+      <div
+        className="bg-red-800 h-5"
+        style={{ width: `${progress}%` }}
+      >{progress}</div>
     </div>
   );
-}
+};
 
 export default App;
