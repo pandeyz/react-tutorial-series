@@ -1,21 +1,26 @@
-import React, { useState,useEffect } from "react";
+// import React, { useState,useEffect } from "react";
 
 const App = () => {
-  const [progress, setProgress] = useState(0);
-  
-  useEffect(() => {
-    let interval = setInterval(() => { setProgress( progress + 10 ) }, 1000);
-    console.log('interval: ', interval);
-  }, []);
+  const userName = 'Joe';
 
   return (
-    <div className="w-full mt-2 h-10 bg-gray-300">
-      <div
-        className="bg-red-800 h-5"
-        style={{ width: `${progress}%` }}
-      >{progress}</div>
-    </div>
+    <WelcomePage title={<WelcomeMessage userName={userName} />} />
   );
-};
+}
+
+const WelcomePage = ({ title }) => {
+  return (
+    <>
+      {title}
+      {/** Some other welcome page code */}
+    </>
+  );
+}
+
+const WelcomeMessage = ({ userName }) => {
+  return (
+    <h1>Hey, {userName}!</h1>
+  );
+}
 
 export default App;
