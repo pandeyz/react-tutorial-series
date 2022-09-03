@@ -14,7 +14,7 @@ function AddUser() {
       // Call the reducer
       if( user.name === '' || user.phone === '' || user.website === '' )
       {
-          alert('All fields are manadatory');
+          alert('All fields are mandatory');
           return false;
       }
 
