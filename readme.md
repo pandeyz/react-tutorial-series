@@ -11,12 +11,18 @@ The root project folder have many sub-foldfers, every sub-folder have a ReactJS 
 How to use
 ----------
 
-Download or Clone the root project folder, under every sub-folder you will find a ReactJS app, go to that folder and run following command:
+Download the root project folder or clone it using:
+
+`git clone https://github.com/pandeyz/react-tutorial-series.git`
+
+once done, navigate to each sub-folder which conatins a specific app in it and run this command:
 
 `npm install`
 
-and you are good to go.
 
-Do let me know if you will find some error in any app or if you find some topic needs to be added.
+Updates
+-------
+
+I am trying my best to add new topics on regular basis. Do let me know if you find some error in any app or if you find some topic missing and it needs to be added.
 
 Happy coding :)
